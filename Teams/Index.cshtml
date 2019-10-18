@@ -1,0 +1,48 @@
+﻿@page
+@model OffPractice.Pages.Teams.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].TN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].TC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].TV)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Team) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TV)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
